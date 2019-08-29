@@ -13,5 +13,39 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\parse">
+      <UniqueIdentifier>{3715bfe9-e012-4095-a16c-9363b6ae3354}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\exception">
+      <UniqueIdentifier>{b44f43da-e0e4-4e8d-b7d2-286fa0ca69b5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="parse.cpp">
+      <Filter>源文件\parse</Filter>
+    </ClCompile>
+    <ClCompile Include="ParseException.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Exception.cpp">
+      <Filter>源文件\exception</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Exception.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="token.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="parse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ParseException.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
