@@ -1,16 +1,12 @@
 #include "Exception.h"
-#include <iostream>
 
-Exception::Exception()
-{
-}
 
 
 Exception::~Exception()
 {
 }
 
-void Exception::print(std::ostream s) {
+void Exception::print(std::ostream &s) {
 	s << "<" << name << ">" << message << endl;
 }
 

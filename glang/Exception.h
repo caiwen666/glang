@@ -8,7 +8,7 @@ class Exception
 {
 public:
 	virtual~Exception();
-	void print(std::ostream);
+	void print(std::ostream&);
 	string getMessage();
 	string getName();
 protected:

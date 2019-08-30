@@ -1,5 +1,7 @@
 #pragma once
 #include "Exception.h"
+#include <sstream>
+
 class ParseException :
 	public Exception
 {

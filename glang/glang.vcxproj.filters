@@ -27,11 +27,14 @@
     <ClCompile Include="parse.cpp">
       <Filter>源文件\parse</Filter>
     </ClCompile>
-    <ClCompile Include="ParseException.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Exception.cpp">
       <Filter>源文件\exception</Filter>
+    </ClCompile>
+    <ClCompile Include="ParseException.cpp">
+      <Filter>源文件\exception</Filter>
+    </ClCompile>
+    <ClCompile Include="token.cpp">
+      <Filter>源文件\parse</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
