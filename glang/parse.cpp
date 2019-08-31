@@ -1,9 +1,6 @@
 #include "parse.h"
 #include "ParseException.h"
 
-void parse::execute() {
-
-}
 
 Token* parse::getToken() {
 
@@ -72,11 +69,11 @@ Token* parse::getToken() {
 			continue;
 		}
 
-		throw ParseException(_position, _line, "没有被识别的字符:"+this_text);
+		throw ParseException(_position, _line, string("没有被识别的字符:")+this_text);
 
 	}
 	if (context_block != 0) {
-		throw ParseException(_position, _line, "缺少右括号来结束括号，需要结束的左括号数量:"+context_block);
+		throw ParseException(_position, _line, string("缺少右括号来结束括号，需要结束的左括号数量:")+to_string(context_block));
 	}
 	if (context_mode == doubleNum&&context_token->text.substr(context_token->text.size() - 1, context_token->text.size()) == ".") {
 		throw ParseException(_position, _line, "小数点后没有数字");

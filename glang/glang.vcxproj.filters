@@ -36,6 +36,12 @@
     <ClCompile Include="token.cpp">
       <Filter>源文件\parse</Filter>
     </ClCompile>
+    <ClCompile Include="Expression.cpp">
+      <Filter>源文件\parse</Filter>
+    </ClCompile>
+    <ClCompile Include="ExpressionException.cpp">
+      <Filter>源文件\exception</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Exception.h">
@@ -48,6 +54,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ParseException.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Expression.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionException.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

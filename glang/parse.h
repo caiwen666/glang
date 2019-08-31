@@ -11,8 +11,6 @@ enum parseMode {
 class parse{
 public:
 	parse(string code) :_code(code), _position(0), context_mode(common) {}
-
-	void execute();
 	Token* getToken();
 private:
 	string _code;//ÏÖÐÐ´úÂë
