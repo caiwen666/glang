@@ -31,11 +31,15 @@ int main()
 {
 	vector<_class**> v;
 	_class* p = new _class();
+	_class* p1 = new _class();
 	_class** ref = &p;
 	v.push_back(ref);
-	v.pop_back();
 	(*ref)->a = 5;
-	cout << p->a << endl;
+	ref = &p1;
+	(*ref)->b = 6;
+	v.back() = ref;
+	cout << (*v[0])->a << endl;
+	//向量中的没有变化，所以向量中也要更新
 	/*
 	vector<aa&> a;
 	aa * q1 = new aa();
