@@ -15,30 +15,110 @@ void print(vector<int>* v) {
 	}
 }
 
-class aa {
+class _another {
 public:
 	int a = 0;
 	int b = 1;
+	_another(const _another &c) {
+		a = c.a;
+		b = c.b;
+	}
+	_another() {}
 };
 
-class _class {
+class _class {//统一的测试类
 public:
 	int a = 0;
 	int b = 1;
+	_another* c = NULL;
+	_class(const _class & a) {
+		c = new _another(*a.c);
+		cout << "_class copy" << endl;
+	}
+	_class() {
+
+	}
+	~_class() {
+		if (c != NULL) {
+			delete c;
+			c = NULL;
+		}
+	}
 };
+
+
+
+namespace test {
+	void pointer_ref() {
+		//指针的引用
+		vector<_class**> v;//指针的指针的向量
+		_class* p = new _class();//第一个实例化类的指针
+		_class* p1 = new _class();//第二个实例化类的指针
+		_class** ref = &p;//将ref指向第一个指针
+		v.push_back(ref);//push到向量
+		(*ref)->a = 5;//更改数据
+		ref = &p1;//重新指向第二个指针
+		(*ref)->a = 6;//更改数据
+		//v[0] = ref;//修改数据,不修改的话还是指向原来第一个指针
+		cout << (*v[0])->a << endl;//测试结果
+	}
+
+	void pointer_copy_a() {
+		//没有类的指针复制
+		int a = 5;
+		int* p=&a;
+		*p = 1;
+		cout << a << endl;
+		*p = a;
+		*p = 2;
+		cout << a << endl;
+	}
+	void pointer_copy() {
+		//指针的引用的copy
+		_class* p = new _class();//第一个实例化类的指针
+		_class* p1 = new _class();//第二个实例化类的指针
+		_class** ref = &p;//将ref指向第一个指针
+
+		p->c = new _another;
+		p1->c = new _another;
+		cout << "第一个类中的指针地址:" << &(p->c) << endl;
+		cout << "第二个类中的指针地址:" << &(p1->c) << endl;
+
+		(*ref) = p1;
+		//p=p1
+		cout << "已复制" << endl;
+		cout << "第一个类中的指针地址:" << &(p->c) << endl;
+		cout << "第二个类中的指针地址:" << &(p1->c) << endl;
+		ref = &p;
+
+		*(*ref) = *p1;
+		//p=p1
+		cout << "已复制" << endl;
+		cout << "第一个类中的指针地址:" << &(p->c) << endl;
+		cout << "第二个类中的指针地址:" << &(p1->c) << endl;
+		ref = &p;
+
+		ref = &p1;
+		//p=p1
+		cout << "已复制" << endl;
+		cout << "第一个类中的指针地址:" << &(p->c) << endl;
+		cout << "第二个类中的指针地址:" << &(p1->c) << endl;
+		ref = &p;
+
+		*ref = new _class(*p1);
+		//p=p1
+		cout << "已复制" << endl;
+		cout << "第一个类中的指针地址:" << &(p->c) << endl;
+		cout << "第二个类中的指针地址:" << &(p1->c) << endl;
+
+		delete p;
+		delete p1;
+	}
+}
 
 int main()
 {
-	vector<_class**> v;
-	_class* p = new _class();
-	_class* p1 = new _class();
-	_class** ref = &p;
-	v.push_back(ref);
-	(*ref)->a = 5;
-	ref = &p1;
-	(*ref)->b = 6;
-	v.back() = ref;
-	cout << (*v[0])->a << endl;
+	test::pointer_copy();
 	//向量中的没有变化，所以向量中也要更新
 	/*
 	vector<aa&> a;
@@ -65,6 +145,7 @@ int main()
 	p2 = NULL;
 	cout << b.a << b.b;
 	*/
+	_CrtDumpMemoryLeaks();
 	system("pause");
     return 0;
 }

@@ -12,6 +12,11 @@ class parse{
 public:
 	parse(string code) :_code(code), _position(0), context_mode(common) {}
 	Token* getToken();
+	~parse() {
+		if (context_token != NULL) {
+			delete context_token;
+		}
+	}
 private:
 	string _code;//现行代码
 	int _position;//解析到的位置
